@@ -2,28 +2,31 @@ var AppView = Backbone.View.extend({
   className: "AppView",
   template: _.template($("#AppView").html()),
   initialize: function(){
-    this.headerView  = new HeaderView();
-    this.navView     = new NavView();
-    this.profileView = new ProfileView();
-
-    var podcastCollection = new Backbone.Collection(this.model.get("podcasts"));
-    this.followerView = new FollowerView({
-      collection: podcastCollection
-    });
+    this.headerView   = new HeaderView();
+    this.navView      = new NavView();
+    this.profileView  = new ProfileView();
+    var followerModel = new Backbone.Model({
+      podcastCollection: this.model.get("podcastCollection")
+    })
+    this.followerView = new FollowerView({ model: followerModel });
 
   },
   render:function(){
-    return this.$el.html(this.template({
-      headerView: this.headerView.render().html(),
-      navView: this.navView.render().html(),
-      profileView: this.profileView.render().html(),
-      followerView: this.followerView.render().html()
-    }));
+    this.$el.html(this.template());
+    this.$(".headerView").html(this.headerView.render())
+    this.$(".navView").html(this.navView.render())
+    this.$(".profileView").html(this.profileView.render())
+    this.$(".followerView").html(this.followerView.render())
+
+    return this.$el;
   }
 });
 
 $(function(){
-  var appModel = new Backbone.Model({podcasts: podcastData});
-  var appView = new AppView({model:appModel});
-  $('#container').append(appView.render());
+  var podcastCollection = new Backbone.Collection(podcastData);
+  var appModel = new Backbone.Model({
+    podcastCollection: podcastCollection
+  });
+  var appView = new AppView({ model:appModel });
+  $('#container').append( appView.render() );
 });

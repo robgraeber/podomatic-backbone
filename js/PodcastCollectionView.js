@@ -1,10 +1,15 @@
 var PodcastCollectionView = Backbone.View.extend({
   className: "PodcastCollectionView",
-  template: _.template($("#PodcastCollectionView").html()),
   initialize: function(){
    
   },
   render:function(){
-    return this.$el.html(this.template());
+    this.$el.children().detach();
+    this.$el.append(
+      this.collection.map(function(podcast){
+        return new PodcastView({model: podcast}).render();
+      })
+    );
+    return this.$el;
   }
 });

@@ -2,10 +2,10 @@
 <head>
 <!-- App Templates -->
   <script id="AppView" type="text/template">
-    <%= headerView %>
-    <%= navView %>
-    <%= profileView %>
-    <%= followerView %>
+    <div class="headerView"></div>
+    <div class="navView"></div>
+    <div class="profileView"></div>
+    <div class="followerView"></div>
   </script>
 
   <script id="HeaderView" type="text/template">
@@ -23,12 +23,12 @@
   <script id="NavView" type="text/template">
     <div id="nav-bar">
       <ul>
-        <li><a href="#"><img src="assets/nav-icons/profile-icon.png"/><br> PROFILE</a></li>
-        <li><a href="#"><img src="assets/nav-icons/following-icon.png"/><br> FOLLOWING</a></li>
-        <li><a href="#"><img src="assets/nav-icons/playlists-icon.png"/><br> PLAYLISTS</a></li>
-        <li><a href="#"><img src="assets/nav-icons/feed-icon.png"/><br> FEED</a></li>
-        <li><a href="#"><img src="assets/nav-icons/discover-icon.png"/><br> DISCOVER</a></li>
-        <li><a href="#"><img src="assets/nav-icons/trending-icon.png"/><br> TRENDING</a></li>
+        <li><a href="#" id="nav-bar-profile" class="active"><img src="assets/nav-icons/profile-icon.png"/><br> PROFILE</a></li>
+        <li><a href="#" id="nav-bar-following"><img src="assets/nav-icons/following-icon.png"/><br> FOLLOWING</a></li>
+        <li><a href="#" id="nav-bar-playlists"><img src="assets/nav-icons/playlists-icon.png"/><br> PLAYLISTS</a></li>
+        <li><a href="#" id="nav-bar-feed"><img src="assets/nav-icons/feed-icon.png"/><br> FEED</a></li>
+        <li><a href="#" id="nav-bar-discover"><img src="assets/nav-icons/discover-icon.png"/><br> DISCOVER</a></li>
+        <li><a href="#" id="nav-bar-trending"><img src="assets/nav-icons/trending-icon.png"/><br> TRENDING</a></li>
       </ul>
     </div>
   </script>
@@ -46,20 +46,39 @@
 
   <script id="FollowerView" type="text/template">
     <div id="podcast-box">
-      <ul id="list-select">
-        <li><a href="#"><b>45 Following</b></a></li>
-        <li><a href="#">4 Playlists</a></li>
-        <li><a href="#">14 Likes</a></li>
+      <ul id="podcast-list-options">
+        <li><a href="#" id="podcast-list-following" class="active">45 Following</a></li>
+        <li><a href="#" id="podcast-list-playlists">4 Playlists</a></li>
+        <li><a href="#" id="podcast-list-likes">14 Likes</a></li>
       </ul>
-      <%= podcastCollectionView %>
+      <div class="podcastCollectionView"></div>
     </div>
   </script>
-  <script id="PodcastCollectionView" type="text/template">
-    podcasts
-  </script>
+
   <script id="PodcastView" type="text/template">
-    podcast
+    <div class="podcast-item">
+      <span class="podcast-image-container float-left">
+        <a href="#"><img class="podcast-image" src=<%= artUrl %>></a>
+        <a href="#"><span class="followingBtn">Following</span></a>
+      </span>
+      <span class="podcast-text float-left">
+        <span class="podcast-text-title"><a href="#"><b><%= title %></b></a></span>
+        <br>
+        <span class="podcast-text-author">by <a href="#"><b><%= author %></b></a></span>
+        <br>
+        <span class="podcast-text-genre"><a href="#"><%= genre %></a></span>
+      </span>
+      <span class="podcast-stats float-left">
+        <span class="podcast-stats-followers">
+          <img src="/assets/followed-podcast-container/followers-icon.png"/> <%= followerCount %> Followers
+        </span>
+        <span class="podcast-stats-episodes">
+          <img src="/assets/followed-podcast-container/episodes-icon.png"/> <%= episodeCount %> Episodes
+        </span>
+      </span>
+    </div>
   </script>
+
 <!-- Library .js files -->
   <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="lib/underscore/underscore.js"></script>
@@ -72,7 +91,7 @@
   <script type="text/javascript" src="js/FollowerView.js"></script>
   <script type="text/javascript" src="js/PodcastCollectionView.js"></script>
   <script type="text/javascript" src="js/PodcastView.js"></script>
-  <script type="text/javascript" src="js/podcastData.js"></script>
+  <script type="text/javascript" src="podcastData.js"></script>
 
 <!-- App .css files -->
   <link rel="stylesheet" type="text/css" href="css/app.css">
