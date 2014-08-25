@@ -1,0 +1,85 @@
+<html>
+<head>
+<!-- App Templates -->
+  <script id="AppView" type="text/template">
+    <%= headerView %>
+    <%= navView %>
+    <%= profileView %>
+    <%= followerView %>
+  </script>
+
+  <script id="HeaderView" type="text/template">
+    <div id="header">
+      <a class="float-left logo" href="#"><img src="assets/toolbar/logo.png" /></a>
+      <input class="float-left" type="text" name="searchtext" placeholder="Search">
+      <ul>
+        <li><a href="#"><img src="assets/toolbar/notifications-icon.png" /></a></li>
+        <li><a href="#"><img src="assets/toolbar/messages-icon.png" /></a></li>
+        <li><a href="#"><img src="assets/toolbar/logged-in-user.png" /></a></li>
+      </ul>
+    </div>
+  </script>
+
+  <script id="NavView" type="text/template">
+    <div id="nav-bar">
+      <ul>
+        <li><a href="#"><img src="assets/nav-icons/profile-icon.png"/><br> PROFILE</a></li>
+        <li><a href="#"><img src="assets/nav-icons/following-icon.png"/><br> FOLLOWING</a></li>
+        <li><a href="#"><img src="assets/nav-icons/playlists-icon.png"/><br> PLAYLISTS</a></li>
+        <li><a href="#"><img src="assets/nav-icons/feed-icon.png"/><br> FEED</a></li>
+        <li><a href="#"><img src="assets/nav-icons/discover-icon.png"/><br> DISCOVER</a></li>
+        <li><a href="#"><img src="assets/nav-icons/trending-icon.png"/><br> TRENDING</a></li>
+      </ul>
+    </div>
+  </script>
+
+  <script id="ProfileView" type="text/template">
+    <div id="profile-box">
+    <ul>
+      <li><a href="#"><img src="assets/header/user-profile-image.png" /></a></li>
+      <li><span class="name-text">Adam Bishop</span></li>
+      <li><span class="location-text">Chicago, IL</span></li>
+      <div class="message-btn float-right"><a href="#"><img src="assets/header/messages-icon-small.png" /> Message</a></div>
+    </ul>
+    </div>
+  </script>
+
+  <script id="FollowerView" type="text/template">
+    <div id="podcast-box">
+      <ul id="list-select">
+        <li><a href="#"><b>45 Following</b></a></li>
+        <li><a href="#">4 Playlists</a></li>
+        <li><a href="#">14 Likes</a></li>
+      </ul>
+      <%= podcastCollectionView %>
+    </div>
+  </script>
+  <script id="PodcastCollectionView" type="text/template">
+    podcasts
+  </script>
+  <script id="PodcastView" type="text/template">
+    podcast
+  </script>
+<!-- Library .js files -->
+  <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="lib/underscore/underscore.js"></script>
+  <script type="text/javascript" src="lib/backbone/backbone.js"></script>
+<!-- App .js files -->
+  <script type="text/javascript" src="js/AppView.js"></script>
+  <script type="text/javascript" src="js/HeaderView.js"></script>
+  <script type="text/javascript" src="js/NavView.js"></script>
+  <script type="text/javascript" src="js/ProfileView.js"></script>
+  <script type="text/javascript" src="js/FollowerView.js"></script>
+  <script type="text/javascript" src="js/PodcastCollectionView.js"></script>
+  <script type="text/javascript" src="js/PodcastView.js"></script>
+  <script type="text/javascript" src="js/podcastData.js"></script>
+
+<!-- App .css files -->
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="container">
+  </div>
+</body>
+</html>
