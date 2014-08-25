@@ -209,7 +209,7 @@ html,body{
   position: relative;
 }
 .podcast-image-container .followingBtn{
-  display:none;
+  display: none;
   position: absolute;
   left: 6px;
   bottom: 4px;
@@ -220,6 +220,18 @@ html,body{
   font-size: 14px;
 }
 .podcast-image-container.active .followingBtn{
+  display: initial;
+}
+.podcast-image-container .podcast-image-overlay{
+  display: none;
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(0,0,0,0.3);
+}
+.podcast-image-container.active .podcast-image-overlay{
   display: initial;
 }
 .podcast-image{
