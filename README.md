@@ -1,4 +1,4 @@
-podomatic-backbone
+Podomatic-Backbone
 ==================
 
 Sample mockup-based project made in backbone.
